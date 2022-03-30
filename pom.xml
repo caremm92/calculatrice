@@ -90,6 +90,12 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.gbenroscience</groupId>
+            <artifactId>parser-ng</artifactId>
+            <version>0.1.5</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

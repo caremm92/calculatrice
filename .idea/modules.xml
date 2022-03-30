@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/calculatrice.iml" filepath="$PROJECT_DIR$/calculatrice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ParserNG-master/ParserNG-master/parser-ng.iml" filepath="$PROJECT_DIR$/../ParserNG-master/ParserNG-master/parser-ng.iml" />
     </modules>
   </component>
 </project>

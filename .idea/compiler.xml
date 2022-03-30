@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="calculatrice" />
+        <module name="parser-ng" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="calculatrice" target="17" />
+      <module name="parser-ng" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
