@@ -1,25 +1,17 @@
 package com.example.calculatrice;
 
-import javafx.application.Application;
+import javafx.application.*;
 import javafx.event.*;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-import javafx.geometry.Insets;
+import javafx.geometry.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.*;
+import parserinitial.parser.*;
 
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.KeyCode;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-//import parser.*;
-
+import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.File;
 
 //import javax.management.loading.*;
 
@@ -29,18 +21,54 @@ public class Ecran extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("com.example.calculatrice.Calculatrice");
 
-        //Creating a menu
+        //Creating menu File
         Menu fileMenu = new Menu("File");
-        //Creating menu Items
+        //Creating menu Item
         MenuItem item5 = new MenuItem("Exit");
         //Adding all the menu items to the menu
         fileMenu.getItems().addAll(item5);
+
+        //Creating menu Help
+        Menu helpMenu = new Menu("Help");
+        //Creating menu Items
+        MenuItem itemh1 = new MenuItem("Documentation");
+        //Adding all the menu items to the menu
+        helpMenu.getItems().addAll(itemh1);
+
+
         //Creating a menu bar and adding menu to it.
-        MenuBar menuBar = new MenuBar(fileMenu);
+        MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().addAll(fileMenu, helpMenu);
         menuBar.setTranslateX(0);
         menuBar.setTranslateY(0);
         item5.setOnAction((ActionEvent t) -> {
             System.exit(0);
+        });
+        itemh1.setOnAction((ActionEvent t) -> {
+            AnchorPane ap2 = new AnchorPane();
+            TextArea textArea2= new TextArea();
+            ap2.getChildren().addAll(textArea2);
+            Scene scene2 = new Scene(ap2, 400, 300);
+            Stage secondstage= new Stage();
+            secondstage.setScene(scene2);
+            secondstage.show();
+
+            String filename ="C:\\Users\\ecarrega\\Documents\\javaproject\\calculatrice\\src\\main\\resources\\aidecalc.txt";
+
+            try {
+                // Create a buffered stream
+                Scanner input = new Scanner(new File(filename));
+
+                // Read a line and append the line to the text area
+                while (input.hasNext()) {
+                    textArea2.appendText(input.nextLine() + '\n');
+                }
+                input.close();
+            } catch (FileNotFoundException ex) {
+                System.out.println("File not found: " + filename);
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         });
         //Creating a text area
         TextArea textArea= new TextArea();
@@ -62,7 +90,7 @@ public class Ecran extends Application {
 
         HBox hbox = new HBox(button1, button2, button3, button4);
 
-        textArea.appendText("this is some text");
+        textArea.appendText("r=4;r*5"+'\n');
         //String equation= textArea.getText();
 
         EventHandler<ActionEvent> eventbutton1 = new EventHandler<ActionEvent>() {
@@ -96,14 +124,29 @@ public class Ecran extends Application {
         button3.setOnAction(eventbutton3);
         button4.setOnAction(eventbutton4);
 
+        //MathExpression expr = new MathExpression("r=4;r*5");
 
-        textArea.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        /*textArea.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent k) {
                 if (k.getCode().equals(KeyCode.ENTER)) {
-                    String equation = textArea.getText();
+                    String equation = textArea.getSelectedText();
                     textArea.appendText(equation);
-                    equation= "";
+                    //textArea.appendText(expr.solve());
+                    //equation= "";
+                    System.out.println("result: " + textArea.getSelectedText());
                 }
+            }
+        });*/
+
+        textArea.setOnMouseClicked(new EventHandler<Event>()
+        {
+            @Override
+            public void handle(Event arg0)
+            {
+                String s;
+                s= textArea.getSelectedText();
+                MathExpression expr = new MathExpression(s);
+                textArea.appendText("solution : "+expr.solve()+'\n');
             }
         });
 

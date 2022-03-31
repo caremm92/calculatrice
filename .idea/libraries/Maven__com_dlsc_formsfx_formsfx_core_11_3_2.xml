@@ -8,6 +8,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/dlsc/formsfx/formsfx-core/11.3.2/formsfx-core-11.3.2-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../ParserNG-master/ParserNG-master/src/main/java" />
     </SOURCES>
   </library>
 </component>

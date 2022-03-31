@@ -9,6 +9,7 @@ module com.example.calculatrice {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.logging;
 
     opens com.example.calculatrice to javafx.fxml;
     exports com.example.calculatrice;
