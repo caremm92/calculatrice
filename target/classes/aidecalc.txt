@@ -1,0 +1,99 @@
+FEATURES
+
+    Arithmetic operations
+    Statistical operations
+    Trigonometric operations
+    Permutations and Combinations
+    Basic matrix operations
+    Differential Calculus(Exact numerical accuracy achieved using symbolic differentiation)
+    Integral Calculus(Numerical)
+    Quadratic Equations
+    Equations : a.x3+b.x+c = 0
+    Numerical (Iterative) solution for roots of equations
+    Simultaneous Linear Equations
+    Variables creation and usage in math expressions
+    Function creation and usage in math expressions
+
+
+Examples:
+r=4;r*5
+solution: 20.0
+
+(34+32)-44/(8+9(3+2))-22
+solution: 43.16981132075472
+
+f(x)=39*sin(x^2)+x^3*cos(x);f(3)
+solution:  -10.65717648378352
+
+User defined functions in 2 ways
+f(x,y)=3*x^2+4*x*y+8 or
+f = @(x,y)3*x^2+4*x*y+8
+
+Differential Calculus
+diff(@(x)x^3,3,1)
+solution: 27
+
+Differential Calculus
+f(x)=x^3*ln(x); diff(f,3,1)
+solution: 38.66253179403897
+
+Numerical Integration
+f(x)=2*x; intg(f,1,3)
+solution: 7.999999999998261
+
+matrices
+M=@(3,3)(3,4,1,2,4,7,9,1,-2)
+det(M)
+solution: 188.99999999999997
+
+Solving simultaneous linear equations
+2x + 3y = -5
+3x - 4y = 20
+linear_sys(2,3,-5,3,-4,20)
+
+solution:
+2.3529411764705888            
+ -3.235294117647059`
+
+triangular matrices
+M=@(3,3)(3,4,1,2,4,7,9,1,-2)
+tri_mat(M)
+
+Echelon form of a matrix
+echelon(M)
+
+Matrix multiplication
+M=@(3,3)(3,4,1,2,4,7,9,1,-2);N=@(3,3)(4,1,8,2,1,3,5,1,9);matrix_mul(M,N);
+solution:
+25.0  ,    8.0  ,   45.0            
+51.0  ,   13.0  ,   91.0            
+28.0  ,    8.0  ,   57.0 
+
+Matrix addition
+M=@(3,3)(3,4,1,2,4,7,9,1,-2);N=@(3,3)(4,1,8,2,1,3,5,1,9);matrix_add(M,N);
+solution:
+7.0  ,    5.0  ,    9.0            
+4.0  ,    5.0  ,   10.0            
+14.0  ,    2.0  ,    7.0   
+
+Matrix subtraction
+M=@(3,3)(3,4,1,2,4,7,9,1,-2);N=@(3,3)(4,1,8,2,1,3,5,1,9);matrix_sub(M,N);
+solution:
+-1.0  ,    3.0  ,   -7.0            
+ 0.0  ,    3.0  ,    4.0            
+ 4.0  ,    0.0  ,  -11.0 
+
+Powers of a Matrix
+M=@(3,3)(3,4,1,2,4,7,9,1,-2);N=@(3,3)(4,1,8,2,1,3,5,1,9);matrix_pow(M,4);
+solution:
+3228.0  , 2755.0  , 1798.0            
+4565.0  , 3802.0  , 3049.0            
+3432.0  , 2257.0  , 1327.0 
+
+Transpose of a Matrix
+M=@(3,3)(3,4,1,2,4,7,9,1,-2);transpose(M);
+solution:
+3.0  ,    2.0  ,    9.0            
+4.0  ,    4.0  ,    1.0            
+1.0  ,    7.0  ,   -2.0 
+
