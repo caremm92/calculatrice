@@ -194,7 +194,6 @@ public class Calculatrice extends Application {
          *Creation de la scene
          */
 
-        //AnchorPane ap = new AnchorPane();
         AnchorPane.setTopAnchor(menuBar,0.0);                           // positionnement des entités menu,aire de texte,
         AnchorPane.setLeftAnchor(textArea,0.0);                         // et grille de boutons
         AnchorPane.setBottomAnchor(gridPane,0.0);
